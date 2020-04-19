@@ -1,4 +1,7 @@
 ## Account balance query exercise
+
+### Assignment
+
 Create an application exercise-balance.js which queries the account balance of the addresses inputAddress, outputAddress and remainderAddress to which you used in the sens.js file.
 
 Use `iota.getBalances(addresses, 100)`.

@@ -1,20 +1,32 @@
+// require IOTA Modules
 const Iota = require('@iota/core')
 const Converter = require('@iota/converter')
 
+// inititalize iota object
 const iota = Iota.composeAPI({
     provider: 'https://nodes.devnet.iota.org:443'
     
 })
 
+// our seed
 const seed = 'LKCZPHLLDIYRRJGKLM99ZOP9UICYDPMXROFZQXFHNSLR9JM9ZEUEGZSDMDJ9VJTFKIHIIGFJDNMFQOWPN'
+
+// address to send the tokens from
 const inputAddress = 'IXOGDENZIWASTKQSNPMQUDCFQXRMYTWNBVLOFMKFWEZNNBPYHSFGPVIMCRNIUBQQLVBQEEZIQ9XUADGHCHNTBISOV9'
+
+// address to send the tokens to
 const outputAddress = '9NJTSJIFGWRXMAHFQRSJLKNMPLPEOY9DSTREPWBTBJCYRVYWYOTDHWNCQKG99JTLKRZKWJDZEFCTCCNPXBHBPDLGVD'
+
+// tag our transactions for later retrieval
 const tag = 'IOTACADEMY9TUTORIAL9TOKEN99';
 
+// set depth not too high but not too low
 const depth = 3
-const minWeightMagnitude = 9
-// Define the transaction
 
+// minWeightMagnitude is 9 for DevNet
+const minWeightMagnitude = 9
+
+// define outputs
 const transfers = [
     {
         value: 1,
@@ -23,6 +35,7 @@ const transfers = [
     }
 ]
 
+// define inputs
 const options = {
     inputs: [
         {
@@ -37,7 +50,7 @@ const options = {
       remainderAddress: 'JOKTKOTYZGLFFFFNGDORBZB9YYFQ9QZFQGKHGILGZIZG9TZDE9LSPOOSXETZHCBCLGWQQAVKWCSDUNTRC'
     }
 
-// Create the transaction
+// prepare bundle and send token
 iota.prepareTransfers(seed, transfers, options)
     .then(trytes => iota.sendTrytes(trytes, depth, minWeightMagnitude))
     .then(bundle => {
