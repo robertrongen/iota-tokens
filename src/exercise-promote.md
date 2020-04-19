@@ -1,10 +1,12 @@
 ## Promote
 
-Create a new file called exercise-promote.js and program a simple tool to promote transactions.
+Create a new file called *exercise-promote.js* and program a simple tool to promote transactions.
 
-A prompt appears: "Enter the hash of a tail transaction:".
-Use checkInclusion to check whether the transaction has already been confirmed, and if so, terminate with a confirmation.
-Check with isPromotable whether the function can be promoted. If not, the application terminates with a response. Otherwise, the transaction is promoted.
+- A prompt appears: *"Enter the hash of a tail transaction:"*.
+- Use `checkInclusion` to check whether the transaction has already been confirmed, and if so, terminate with a confirmation.
+- Check with `isPromotable` whether the function can be promoted. If not, the application terminates with a response. Otherwise, the transaction is promoted.
+
+### Instructions
 
 The call of `iota.getLatestInclusion(transactions)` with transactions an array of transaction hashes results in an array of booleans (true/false values) of equal length, where a value of true for the respective transaction means that it has been confirmed by a milestone.
 

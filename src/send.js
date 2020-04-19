@@ -32,7 +32,10 @@ const options = {
             balance: 1
         }
       ],
-}
+      //In the field remainderAddress you have to store the address without checksum
+      // iow only as 81 tryte long string (delete last 9 chars), otherwise an error will be ejected.
+      remainderAddress: 'JOKTKOTYZGLFFFFNGDORBZB9YYFQ9QZFQGKHGILGZIZG9TZDE9LSPOOSXETZHCBCLGWQQAVKWCSDUNTRC'
+    }
 
 // Create the transaction
 iota.prepareTransfers(seed, transfers, options)
